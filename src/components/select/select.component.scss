@@ -26,6 +26,25 @@
                     line-height: 34px !important;
                 }
             }
+
+            > div.multiple {
+                min-height: 32px !important;
+
+                > input {
+                    height: 32px;
+                    box-shadow: none;
+                    line-height: 32px;
+                }
+
+                > div.placeholder {
+                    color: #aaaaaa !important;
+                }
+
+                > div.placeholder, > div.toggle, > div.clear, > div.value {
+                    color: #3d464d;
+                    // line-height: 34px !important;
+                }
+            }
         }
     }
 

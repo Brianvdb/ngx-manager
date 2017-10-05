@@ -1,7 +1,9 @@
 <bb-form-control [grouped]="grouped" [label]="label" [icon]="icon" [reversed]="reversed">
     <ng-select [disabled]="disabled" [options]="items" [allowClear]="true" [(ngModel)]="result" [noFilter]="5"
-               (ngModelChange)="onChangeCallback(result)"
+               [multiple]="multiple" (ngModelChange)="onChangeCallback(result)"
                [placeholder]="'Click to select an item from the list' | translate"
                [notFoundMsg]="'No item was found' | translate"
-               [filterPlaceholder]="'Search for items in the list' | translate"></ng-select>
+               [filterPlaceholder]="'Search for items in the list' | translate">
+        <ng-content></ng-content>
+    </ng-select>
 </bb-form-control>

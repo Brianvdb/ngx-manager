@@ -20,7 +20,8 @@ export class SelectComponent implements ControlValueAccessor {
     @Input() public icon: string;
     @Input() public label: string;
     @Input() public grouped = true;
-    @Input() public disabled= false;
+    @Input() public multiple = false;
+    @Input() public disabled = false;
     @Input() public reversed = false;
     @Input() public items: Option[];
     @Input() public result: string;
