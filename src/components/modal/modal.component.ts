@@ -45,6 +45,7 @@ export class ModalComponent implements OnInit {
     public wrapperState = 'active';
 
     // Inputs.
+    @Input() public out = true;
     @Input() public back: string;
     @Input() public title: string;
     @Input() public modifier: string;
@@ -74,7 +75,8 @@ export class ModalComponent implements OnInit {
             && this.back
             && event['value'] === true
             && typeof event['target'].className === 'string'
-            && event['target'].className.includes('modal__wrapper')) {
+            && event['target'].className.includes('modal__wrapper')
+            && this.out) {
             this.quit();
         }
     }
