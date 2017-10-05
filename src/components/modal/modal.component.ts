@@ -11,20 +11,20 @@ import 'rxjs/add/operator/first';
     styleUrls: ['./modal.component.scss'],
     animations: [
         trigger('modalState', [
-            state('inactive', style({transform: 'translateY(-20px) scale(0.98)', opacity: 0})),
+            state('inactive', style({transform: 'scale(0.95)', opacity: 0})),
             state('active', style({transform: 'none', opacity: 1})),
 
             transition('inactive => active', animate(`220ms cubic-bezier(0.0, 0.0, 0.2, 1)`)),
             transition('active => inactive', animate(`220ms cubic-bezier(0.0, 0.0, 0.2, 1)`)),
 
             transition('inactive => void', [animate(220, style({
-                transform: 'translateY(-20px) scale(0.98)',
+                transform: 'scale(0.95)',
                 opacity: 0
             }))]),
             transition('void => active', [style({
-                transform: 'translateY(-20px) scale(0.98)',
+                transform: 'scale(0.95)',
                 opacity: 0
-            }), animate(220)])
+            }), animate(110)])
         ]),
         trigger('modalWrapperState', [
             state('inactive', style({opacity: 0})),
