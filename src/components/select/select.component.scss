@@ -28,6 +28,7 @@
             }
 
             > div.multiple {
+                height: auto !important;
                 min-height: 32px !important;
 
                 > input {
@@ -42,7 +43,6 @@
 
                 > div.placeholder, > div.toggle, > div.clear, > div.value {
                     color: #3d464d;
-                    // line-height: 34px !important;
                 }
             }
         }
@@ -53,6 +53,10 @@
             top: 46px;
             border-radius: 3px;
             border: 1px solid #bdc4c9;
+
+            input {
+                box-shadow: none;
+            }
 
             & > div.options {
                 border-radius: 2px;
