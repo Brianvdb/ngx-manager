@@ -70,7 +70,7 @@
             box-shadow: 0 0 0 2px rgba(3, 102, 214, 0.1);
         }
 
-        &:read-only:not(select) {
+        &:read-only:not(select):not(.input--date-picker--bb) {
             color: rgba(black, 0.5);
             background-color: rgba(204, 204, 204, 0.4);
         }

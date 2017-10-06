@@ -13,7 +13,8 @@ import {
     ButtonComponent,
     ButtonGroupComponent,
     CardComponent,
-    ModalComponent
+    ModalComponent,
+    DatePickerComponent
 } from './components';
 
 import {TranslationsService} from './services';
@@ -33,6 +34,7 @@ import {LibraryConfig} from './interfaces/library-config.interface';
         ButtonGroupComponent,
         CardComponent,
         ModalComponent,
+        DatePickerComponent,
         // Directives.
         ClickOutsideDirective,
         // Pipes.
@@ -59,6 +61,7 @@ import {LibraryConfig} from './interfaces/library-config.interface';
         ButtonGroupComponent,
         CardComponent,
         ModalComponent,
+        DatePickerComponent,
         // Directives.
         ClickOutsideDirective,
         // Pipes.

@@ -2,7 +2,7 @@
     width: 100%;
     filter: none;
     max-width: 750px;
-    margin: 40px auto 0;
+    margin: 20px auto 0;
     will-change: transform, opacity;
 
     &--small { max-width: 400px; }
@@ -12,14 +12,36 @@
         left: 0;
         right: 0;
         bottom: 0;
+        padding: 20px;
         position: fixed;
         overflow-y: auto;
         will-change: opacity;
-        padding: 40px 20px 20px;
         background-color: rgba(0, 0, 0, 0.5);
     }
 }
 
 :host /deep/ {
-    .card-body { overflow-x: inherit; overflow-y: auto; max-height: calc(100vh - 210px); }
+    .card-body { overflow-x: inherit; }
+
+    .modal--overflow {
+        .card-body { overflow-y: auto; max-height: calc(100vh - 170px); }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    .modal {
+        margin: 40px auto 0;
+
+        &__wrapper {
+            padding: 40px 20px 20px;
+        }
+    }
+
+    :host /deep/ {
+        .modal--overflow {
+            .card-body { max-height: calc(100vh - 210px); }
+        }
+    }
+
 }

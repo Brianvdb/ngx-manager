@@ -1,5 +1,5 @@
 <div [@modalWrapperState]="wrapperState" (@modalWrapperState.done)="animationDone($event)" class="modal__wrapper">
-    <div [@modalState]="state" [class]="'modal modal--' + modifier"
+    <div [@modalState]="state" [class]="'modal modal--' + modifier" [ngClass]="{'modal--overflow': overflow}"
          bbClickOutside (clickOutside)="onClickOutside($event)">
         <bb-card [title]="title" [rightButtonBar]="[{id: 'goBackModal', icon: 'clear'}]"
                   [leftButtonBar]="leftButtonBar" (onButtonClicked)="onClick($event)">

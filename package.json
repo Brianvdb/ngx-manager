@@ -1,6 +1,6 @@
 {
     "name": "@bravobit/ngx-manager",
-    "version": "0.0.68",
+    "version": "0.0.76",
     "description": "The NGX manager library",
     "main": "./dist/index.umd.js",
     "module": "./dist/index.js",
@@ -44,6 +44,7 @@
         "prebuild": "rimraf dist tmp",
         "prebuild:watch": "rimraf dist tmp",
         "prepublishOnly": "npm run ci",
+        "postpublish": "rimraf dist",
         "preversion": "npm run ci",
         "tslint": "tslint"
     },

@@ -16,7 +16,8 @@ export {
     ButtonComponent,
     ButtonGroupComponent,
     CardComponent,
-    ModalComponent
+    ModalComponent,
+    DatePickerComponent
 } from './components';
 
 //

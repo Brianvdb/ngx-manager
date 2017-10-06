@@ -1,0 +1,30 @@
+<bb-form-control [label]="label" [icon]="icon" [reversed]="reversed" [grouped]="grouped">
+    <input [disabled]="disabled" (click)="toggle(true)" readonly type="text" class="input--date-picker--bb"
+           [placeholder]="placeholder | translate" [(ngModel)]="date" (ngModelChange)="recalculate()">
+</bb-form-control>
+
+<div bbClickOutside (clickOutside)="onClickOutside($event)" [ngClass]="{'dropdown--visible': visible}"
+     class="dropdown">
+    <div class="dropdown__header">
+        <button (click)="recalculate(-1)" type="button" class="dropdown__button">
+            <i class="material-icons">chevron_left</i>
+        </button>
+        <div class="dropdown__title">
+            <span class="dropdown__title--first">{{ month | translate }}</span>
+            <span class="dropdown__title--second">{{ year }}</span>
+        </div>
+        <button (click)="recalculate(1)" type="button" class="dropdown__button">
+            <i class="material-icons">chevron_right</i>
+        </button>
+    </div>
+    <div class="dropdown__body">
+        <div class="dropdown__row" *ngFor="let week of calendar">
+            <button *ngFor="let day of week" (click)="onDayClick(day)" type="button" class="dropdown__item"
+                    [ngClass]="{'dropdown__item--inactive': !day.active}">
+                <span class="dropdown__span" [ngClass]="{'dropdown__span--active': value === day.date}">
+                    {{ day.number }}
+                </span>
+            </button>
+        </div>
+    </div>
+</div>

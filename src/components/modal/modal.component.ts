@@ -46,6 +46,7 @@ export class ModalComponent implements OnInit {
 
     // Inputs.
     @Input() public out = true;
+    @Input() public overflow = true;
     @Input() public back: string;
     @Input() public title: string;
     @Input() public modifier: string;
