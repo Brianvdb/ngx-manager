@@ -1,5 +1,5 @@
 <label class="radio" [class.radio--grouped]="grouped" [class.radio--disabled]="disabled" tabindex="0">
-    <input [(ngModel)]="model" [value]="value" [name]="name" [disabled]="disabled" (change)="onChangeCallback(checked)"
+    <input [(ngModel)]="model" [value]="value" [name]="name" [disabled]="disabled" (change)="onChangeCallback(model)"
            class="radio__input" type="radio" role="radio" tabindex="-1">
     <span class="radio__element"></span>
     <span class="radio__label" *ngIf="label">{{ label | translate }}</span>

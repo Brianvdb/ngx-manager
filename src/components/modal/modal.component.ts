@@ -51,7 +51,7 @@ export class ModalComponent implements OnInit {
     @Input() public title: string;
     @Input() public modifier: string;
     @Input() public wait: Observable<any>;
-    @Input() public rightButtonBar: CardButton[];
+    @Input() public leftButtonBar: CardButton[];
 
     // Outputs.
     @Output() public onButtonClicked = new EventEmitter<CardEvent>();

@@ -1,6 +1,6 @@
 <bb-form-control [label]="label" [icon]="icon" [reversed]="reversed" [grouped]="grouped">
     <input [disabled]="disabled" (click)="toggle(true)" readonly type="text" class="input--date-picker--bb"
-           [placeholder]="placeholder | translate" [(ngModel)]="date" (ngModelChange)="recalculate()">
+           [placeholder]="placeholder | translate" [(ngModel)]="value" (ngModelChange)="recalculate()">
 </bb-form-control>
 
 <div bbClickOutside (clickOutside)="onClickOutside($event)" [ngClass]="{'dropdown--visible': visible}"
