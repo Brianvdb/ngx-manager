@@ -120,7 +120,7 @@ export class TranslationsService {
         const dictionary: object = this.dictionary[this.language];
 
         // Check if the dictionary contains the key then return the translated value.
-        if (dictionary.hasOwnProperty(key)) {
+        if (dictionary && dictionary.hasOwnProperty(key)) {
             return dictionary[key];
         }
 
@@ -142,6 +142,10 @@ export class TranslationsService {
         // Loop through each dictionary file.
         Object.keys(this.dictionary).forEach((languageKey) => {
             const language: object = this.dictionary[languageKey];
+
+            if (!language) {
+                return;
+            }
 
             // Retrieve the keys.
             const data = this.getKeys(language);
