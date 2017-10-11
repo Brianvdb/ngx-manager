@@ -38,6 +38,12 @@ export class ButtonComponent {
     @Input() public reversed = false;
 
     /**
+     * The grouped state of the button.
+     * @type {boolean}
+     */
+    @Input() public grouped = false;
+
+    /**
      * The type of the button.
      * @type {string}
      */

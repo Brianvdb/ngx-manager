@@ -1,10 +1,14 @@
 <div [@modalWrapperState]="wrapperState" (@modalWrapperState.done)="animationDone($event)" class="modal__wrapper">
     <div [@modalState]="state" [class]="'modal modal--' + modifier" [ngClass]="{'modal--overflow': overflow}"
          bbClickOutside (clickOutside)="onClickOutside($event)">
-        <bb-card [title]="title" [rightButtonBar]="[{id: 'goBackModal', icon: 'clear'}]"
-                  [leftButtonBar]="leftButtonBar" (onButtonClicked)="onClick($event)">
-            <ng-content></ng-content>
+        <bb-card *ngIf="boilerplate; else data" [title]="title" [leftButtonBar]="leftButtonBar"
+                 [rightButtonBar]="[{id: 'goBackModal', icon: 'clear'}]" (onButtonClicked)="onClick($event)">
+            <ng-container *ngTemplateOutlet="data"></ng-container>
         </bb-card>
+
+        <ng-template #data>
+            <ng-content></ng-content>
+        </ng-template>
     </div>
 
     <div *ngIf="state !== 'active' && !initial"
