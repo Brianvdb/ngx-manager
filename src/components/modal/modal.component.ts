@@ -2,6 +2,7 @@ import {trigger, animate, style, transition, state} from '@angular/animations';
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CardButton, CardEvent} from '../../interfaces/card.interface';
 import {Observable} from 'rxjs/Observable';
+import {Location} from '@angular/common';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/first';
 
@@ -57,7 +58,7 @@ export class ModalComponent implements OnInit {
     // Outputs.
     @Output() public onButtonClicked = new EventEmitter<CardEvent>();
 
-    public constructor(private router: Router) {
+    public constructor(private router: Router, private location: Location) {
     }
 
     public ngOnInit(): void {
@@ -74,7 +75,6 @@ export class ModalComponent implements OnInit {
 
     public onClickOutside(event: Object): void {
         if (event
-            && this.back
             && event['value'] === true
             && typeof event['target'].className === 'string'
             && event['target'].className.includes('modal__wrapper')
@@ -97,7 +97,12 @@ export class ModalComponent implements OnInit {
             return;
         }
 
-        this.router.navigate([this.back]).then(_ => _);
+        if (this.back) {
+            this.router.navigate([this.back]).then(_ => _);
+            return;
+        }
+
+        this.location.back();
     }
 
     public quit(): void {
