@@ -2,7 +2,8 @@
     <div [@modalState]="state" [class]="'modal modal--' + modifier" [ngClass]="{'modal--overflow': overflow}"
          bbClickOutside (clickOutside)="onClickOutside($event)">
         <bb-card *ngIf="boilerplate; else data" [title]="title" [leftButtonBar]="leftButtonBar"
-                 [rightButtonBar]="[{id: 'goBackModal', icon: 'clear'}]" (onButtonClicked)="onClick($event)">
+                 [rightButtonBar]="rightButtonBar || [{id: 'goBackModal', icon: 'clear'}]"
+                 (onButtonClicked)="onClick($event)">
             <ng-container *ngTemplateOutlet="data"></ng-container>
         </bb-card>
 
