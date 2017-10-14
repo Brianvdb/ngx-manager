@@ -70,6 +70,10 @@
     }
     &:disabled, &--loading { opacity: 0.4; cursor: default; pointer-events: none; }
 
+    &--grouped {
+        margin-bottom: 20px;
+    }
+
     &--default {
         color: #2895F1;
         background: transparent;

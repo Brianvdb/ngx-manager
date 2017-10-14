@@ -52,6 +52,9 @@ import {LibraryConfig} from './interfaces/library-config.interface';
         TranslationsService
     ],
     exports: [
+        // Imports.
+        CookieModule,
+
         // Components.
         FormControlComponent,
         CheckboxComponent,
