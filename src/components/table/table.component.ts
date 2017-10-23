@@ -79,4 +79,16 @@ export class TableComponent {
             this.rightButtonBar.concat(this.selectedButtonBar);
     }
 
+    /**
+     * Angular loop optimizations.
+     *
+     * @param {number} index The index of the item.
+     * @param {object} item The item.
+     *
+     * @returns {number} The unique identifier.
+     */
+    public trackById(index: number, item: object): string {
+        return item[this.rowIdentifier];
+    }
+
 }

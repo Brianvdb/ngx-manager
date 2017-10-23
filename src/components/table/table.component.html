@@ -17,7 +17,7 @@
                         {{ row.label && row.label !== '' ? (row.label | translate) : row.label }}
                     </th>
                 </tr>
-                <tr class="table-row" *ngFor="let item of list">
+                <tr class="table-row" *ngFor="let item of list; trackBy: trackById">
                     <td *ngIf="selectedButtonBar.length > 0" class="table-data table-data__checkbox">
                         <bb-checkbox (click)="onCheckboxClicked(item[rowIdentifier])"
                                      [selected]="isRowSelected(item[rowIdentifier])" [single]="true"></bb-checkbox>
