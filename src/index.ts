@@ -17,7 +17,8 @@ export {
     ButtonGroupComponent,
     CardComponent,
     ModalComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    TableComponent
 } from './components';
 
 //
@@ -41,7 +42,8 @@ export {
     LibraryConfig,
     Option,
     CardEvent,
-    CardButton
+    CardButton,
+    TableRow
 } from './interfaces';
 
 //

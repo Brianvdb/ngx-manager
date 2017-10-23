@@ -7,3 +7,4 @@ export * from './button-group/button-group.component';
 export * from './card/card.component';
 export * from './modal/modal.component';
 export * from './date-picker/date-picker.component';
+export * from './table/table.component';

@@ -1,0 +1,68 @@
+<bb-card [padding]="0" [title]="title" [rightButtonBar]="buttonBar"
+         (onButtonClicked)="resetAndEmit($event)">
+    <div class="table-wrapper">
+        <table class="table">
+            <ng-container *ngIf="data | async as list; else loading">
+                <tr *ngIf="list.length > 0" class="table-row table-row--header">
+                    <th *ngIf="selectedButtonBar.length > 0" class="table-header table-header__checkbox">
+                        <bb-checkbox (click)="onAllCheckboxClicked(list)" [selected]="selected.length === list.length"
+                                     [single]="true"></bb-checkbox>
+                    </th>
+                    <th *ngFor="let row of rows" [ngClass]="{
+                        'table-header--fit': row.fit,
+                        'table-header--center': row.flow === 'center',
+                        'table-header--left': !row.flow || row.flow === 'left',
+                        'table-header--right': row.flow === 'right'
+                    }" class="table-header">
+                        {{ row.label && row.label !== '' ? (row.label | translate) : row.label }}
+                    </th>
+                </tr>
+                <tr class="table-row" *ngFor="let item of list">
+                    <td *ngIf="selectedButtonBar.length > 0" class="table-data table-data__checkbox">
+                        <bb-checkbox (click)="onCheckboxClicked(item[rowIdentifier])"
+                                     [selected]="isRowSelected(item[rowIdentifier])" [single]="true"></bb-checkbox>
+                    </td>
+                    <td *ngFor="let row of rows" [ngClass]="{
+                        'table-data--fit': row.fit,
+                        'table-data--center': row.flow === 'center',
+                        'table-data--left': !row.flow || row.flow === 'left',
+                        'table-data--right': row.flow === 'right'
+                    }" class="table-data">
+                        <ng-container *ngIf="!row.templateRef">
+                            {{ item[row.property] || '-' }}
+                        </ng-container>
+                        <ng-container *ngIf="row.templateRef">
+                            <ng-container *ngTemplateOutlet="row.templateRef; context: {$implicit: {}, data: item}">
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                </tr>
+                <tr *ngIf="list.length === 0" class="table-row">
+                    <td class="table-data table-data--center table-data--empty">
+                        <span class="light">{{ empty | translate }}</span>
+                    </td>
+                </tr>
+            </ng-container>
+        </table>
+    </div>
+</bb-card>
+
+<ng-template #loading>
+    <tr class="table-row">
+        <td class="table-data table-data--center">
+            <svg width="64px" height="64px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+                 preserveAspectRatio="xMidYMid" class="lds-ring">
+                <circle cx="50" cy="50" r="30" stroke-width="10" fill="none"></circle>
+                <circle cx="50" cy="50" r="30" stroke="#9f9f9f" stroke-width="10" fill="none"
+                        transform="rotate(144 50 50)">
+                    <animateTransform attributeName="transform" type="rotate" calcMode="linear"
+                                      values="0 50 50;360 50 50"
+                                      keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
+                    <animate attributeName="stroke-dasharray" calcMode="linear"
+                             values="18.84955592153876 169.64600329384882;94.2477796076938 94.24777960769377;18.84955592153876 169.64600329384882"
+                             keyTimes="0;0.5;1" dur="1" begin="0s" repeatCount="indefinite"></animate>
+                </circle>
+            </svg>
+        </td>
+    </tr>
+</ng-template>
