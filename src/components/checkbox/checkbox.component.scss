@@ -7,6 +7,7 @@ $size: 22px;
     align-items: center;
 
     &--grouped { margin-bottom: 20px; }
+    &--single { margin-bottom: 0; }
 
     &__input {
         width: $size;

@@ -1,4 +1,5 @@
-<label class="checkbox" [ngClass]="{'checkbox--grouped': grouped, 'checkbox--disabled': disabled}">
+<label class="checkbox"
+       [ngClass]="{'checkbox--grouped': grouped, 'checkbox--single': single, 'checkbox--disabled': disabled}">
     <input [(ngModel)]="selected" [disabled]="disabled" (ngModelChange)="onChangeCallback(selected)"
            class="checkbox__input" type="checkbox">
     <span class="checkbox__label" *ngIf="label">{{ label | translate }}</span>

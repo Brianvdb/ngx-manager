@@ -39,6 +39,12 @@ export class CheckboxComponent implements ControlValueAccessor {
      */
     @Input() public grouped = false;
 
+    /**
+     * If the checkbox should have single bottom margin.
+     * @type {boolean}
+     */
+    @Input() public single = false;
+
     // Callbacks.
     public onTouchedCallback: () => void = () => {
     };
