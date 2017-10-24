@@ -8,7 +8,7 @@
                         <bb-checkbox (click)="onAllCheckboxClicked(list)" [selected]="selected.length === list.length"
                                      [single]="true"></bb-checkbox>
                     </th>
-                    <th *ngFor="let row of rows" [ngClass]="{
+                    <th *ngFor="let row of rows; trackBy: trackByRow" [ngClass]="{
                         'table-header--fit': row.fit,
                         'table-header--center': row.flow === 'center',
                         'table-header--left': !row.flow || row.flow === 'left',
@@ -17,12 +17,12 @@
                         {{ row.label && row.label !== '' ? (row.label | translate) : row.label }}
                     </th>
                 </tr>
-                <tr class="table-row" *ngFor="let item of list; trackBy: trackById">
+                <tr class="table-row" *ngFor="let item of list; trackBy: trackByRowIdentifier">
                     <td *ngIf="selectedButtonBar.length > 0" class="table-data table-data__checkbox">
                         <bb-checkbox (click)="onCheckboxClicked(item[rowIdentifier])"
                                      [selected]="isRowSelected(item[rowIdentifier])" [single]="true"></bb-checkbox>
                     </td>
-                    <td *ngFor="let row of rows" [ngClass]="{
+                    <td *ngFor="let row of rows; trackBy: trackByRow" [ngClass]="{
                         'table-data--fit': row.fit,
                         'table-data--center': row.flow === 'center',
                         'table-data--left': !row.flow || row.flow === 'left',

@@ -87,8 +87,20 @@ export class TableComponent {
      *
      * @returns {number} The unique identifier.
      */
-    public trackById(index: number, item: object): string {
+    public trackByRowIdentifier(index: number, item: object): string {
         return item[this.rowIdentifier];
+    }
+
+    /**
+     * Angular loop optimizations.
+     *
+     * @param {number} index The index of the item.
+     * @param {TableRow} row The table row.
+     *
+     * @returns {number} The unique identifier.
+     */
+    public trackByRow(index: number, row: TableRow): string {
+        return row.label + index;
     }
 
 }

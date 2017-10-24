@@ -1,6 +1,6 @@
 {
     "name": "@bravobit/ngx-manager",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "description": "The NGX manager library",
     "main": "./dist/index.umd.js",
     "module": "./dist/index.js",
