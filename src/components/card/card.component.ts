@@ -11,6 +11,7 @@ export class CardComponent {
     // Inputs.
     @Input() public title: string;
     @Input() public padding: string;
+    @Input() public overflow = 0;
     @Input() public leftButtonBar: CardButton[];
     @Input() public rightButtonBar: CardButton[];
 

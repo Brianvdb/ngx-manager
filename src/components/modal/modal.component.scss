@@ -22,7 +22,11 @@
 }
 
 :host /deep/ {
-    .card-body { overflow-x: inherit; }
+    .card-body {
+        overflow-x: inherit;
+
+        &--overflow { overflow-y: auto; }
+    }
 
     .modal--overflow {
         .card-body { overflow-y: auto; max-height: calc(100vh - 170px); }

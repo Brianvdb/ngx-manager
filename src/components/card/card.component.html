@@ -12,7 +12,8 @@
             </button>
         </div>
     </div>
-    <div class="card-body" [style.padding]="padding">
+    <div class="card-body" [ngClass]="{'card-body--overflow': overflow !== 0}" [style.padding]="padding"
+         [style.height]="overflow === 0 ? 'auto': overflow + 'px'">
         <ng-content></ng-content>
     </div>
 </div>
