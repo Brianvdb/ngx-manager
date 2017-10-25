@@ -2,7 +2,8 @@
 // Export all the services.
 //
 export {
-    TranslationsService
+    TranslationsService,
+    NotificationsService
 } from './services';
 
 //
@@ -43,7 +44,8 @@ export {
     Option,
     CardEvent,
     CardButton,
-    TableRow
+    TableRow,
+    Notification
 } from './interfaces';
 
 //

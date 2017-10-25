@@ -1,9 +1,6 @@
 import {Directive, OnInit, OnDestroy, Output, EventEmitter, ElementRef} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/do';
 
 @Directive({
     selector: '[bbClickOutside]'

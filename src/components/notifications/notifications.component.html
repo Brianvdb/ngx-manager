@@ -1,0 +1,13 @@
+<div class="notifications" *ngIf="items$ | async as items">
+    <div class="notifications__list" [@listAnimation]="items.length">
+        <div class="notifications__item-wrapper" *ngFor="let item of items; trackBy: trackById">
+            <div class="notifications__item" [ngClass]="{
+                'notifications__item--success': item.type === 'success',
+                'notifications__item--error': item.type === 'error'
+            }">
+                <i class="material-icons notifications__icon">error</i>
+                {{ item.message | translate }}
+            </div>
+        </div>
+    </div>
+</div>

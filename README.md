@@ -10,23 +10,11 @@ You can install this package locally with npm or yarn.
 ```bash
 # To get the latest stable version
 
-npm install @bravobit/ngx-manager --save
+npm install @bravobit/ngx-manager ng-select ngx-cookie --save
 
 # or
 
-yarn add @bravobit/ngx-manager
-```
-
-NGX-manager has some peer dependencies you can install locally with npm or yarn.
-
-```bash
-# To get the latest stable versions
-
-npm install ng-select ngx-cookie --save
-
-# or
-
-yarn add ng-select ngx-cookie
+yarn add @bravobit/ngx-manager ng-select ngx-cookie
 ```
 
 ### <a name="usage"></a> Usage
@@ -87,6 +75,16 @@ import * as dutch from '../languages/dutch.language.json';
 })
 export class AppModule {
 }
+```
+
+### <a name="notifications"></a> Notifications
+
+If you want to add notifications to your project you should add the `<bb-notifications></bb-notifications>` to your `app.component.html`
+
+```html
+<router-outlet></router-outlet>
+
+<bb-notifications></bb-notifications>
 ```
 
 ## <a name="form-components"></a> Form components

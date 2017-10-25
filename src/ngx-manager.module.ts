@@ -15,14 +15,25 @@ import {
     CardComponent,
     ModalComponent,
     DatePickerComponent,
-    TableComponent
+    TableComponent,
+    NotificationsComponent
 } from './components';
 
-import {TranslationsService} from './services';
+import {
+    TranslationsService,
+    NotificationsService
+} from './services';
+
 import {ClickOutsideDirective} from './directives';
 import {TranslatePipe} from './pipes';
 
 import {LibraryConfig} from './interfaces/library-config.interface';
+
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/delay';
+import 'rxjs/add/operator/first';
+import 'rxjs/add/operator/do';
 
 @NgModule({
     declarations: [
@@ -37,6 +48,7 @@ import {LibraryConfig} from './interfaces/library-config.interface';
         ModalComponent,
         DatePickerComponent,
         TableComponent,
+        NotificationsComponent,
         // Directives.
         ClickOutsideDirective,
         // Pipes.
@@ -51,7 +63,8 @@ import {LibraryConfig} from './interfaces/library-config.interface';
         SelectModule
     ],
     providers: [
-        TranslationsService
+        TranslationsService,
+        NotificationsService
     ],
     exports: [
         // Imports.
@@ -68,6 +81,7 @@ import {LibraryConfig} from './interfaces/library-config.interface';
         ModalComponent,
         DatePickerComponent,
         TableComponent,
+        NotificationsComponent,
         // Directives.
         ClickOutsideDirective,
         // Pipes.
