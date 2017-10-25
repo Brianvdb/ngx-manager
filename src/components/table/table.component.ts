@@ -21,11 +21,12 @@ export class TableComponent {
     @Input() public header = true;
     @Input() public overflow = 0;
 
+    // Selected keys.
+    @Input() public selected: string[] = [];
+
     // Outputs.
     @Output() public onButtonClicked = new EventEmitter<CardEvent>();
-
-    // Selected keys.
-    public selected: string[] = [];
+    @Output() public onSelectedChange = new EventEmitter<string[]>();
 
     /**
      * Resets the checkboxes and emits a card event.
@@ -35,6 +36,7 @@ export class TableComponent {
     public resetAndEmit(event: CardEvent): void {
         this.onButtonClicked.emit({...event, data: this.selected.slice()});
         this.selected.length = 0;
+        this.onSelectedChange.emit(this.selected.slice());
     }
 
     /**
@@ -46,6 +48,8 @@ export class TableComponent {
         this.selected.length === list.length ?
             this.selected.length = 0 :
             this.selected = list.map(item => item[this.rowIdentifier]);
+
+        this.onSelectedChange.emit(this.selected.slice());
     }
 
     /**
@@ -59,6 +63,8 @@ export class TableComponent {
         index >= 0 ?
             this.selected.splice(index, 1) :
             this.selected.push(identifier);
+
+        this.onSelectedChange.emit(this.selected.slice());
     }
 
     /**
