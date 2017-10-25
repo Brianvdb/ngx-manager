@@ -24,8 +24,6 @@
 :host /deep/ {
     .card-body {
         overflow-x: inherit;
-
-        &--overflow { overflow-y: auto; }
     }
 
     .modal--overflow {
