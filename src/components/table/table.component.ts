@@ -18,6 +18,8 @@ export class TableComponent {
     @Input() public rightButtonBar: CardButton[] = [];
     @Input() public selectedButtonBar: CardButton[] = [];
     @Input() public empty: string = 'This list is empty.';
+    @Input() public header = true;
+    @Input() public overflow = 0;
 
     // Outputs.
     @Output() public onButtonClicked = new EventEmitter<CardEvent>();

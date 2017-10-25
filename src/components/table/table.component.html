@@ -1,9 +1,10 @@
 <bb-card [padding]="0" [title]="title" [rightButtonBar]="buttonBar"
          (onButtonClicked)="resetAndEmit($event)">
-    <div class="table-wrapper">
+    <div class="table-wrapper" [ngClass]="{'table-wrapper--overflow': overflow > 0}"
+         [style.height]="overflow === 0 ? 'auto': overflow">
         <table class="table">
             <ng-container *ngIf="data | async as list; else loading">
-                <tr *ngIf="list.length > 0" class="table-row table-row--header">
+                <tr *ngIf="header && list.length > 0" class="table-row table-row--header">
                     <th *ngIf="selectedButtonBar.length > 0" class="table-header table-header__checkbox">
                         <bb-checkbox (click)="onAllCheckboxClicked(list)" [selected]="selected.length === list.length"
                                      [single]="true"></bb-checkbox>
